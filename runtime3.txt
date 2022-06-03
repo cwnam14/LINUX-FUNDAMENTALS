@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo -n Enter a filename :
+read filename
+
+if [ -f $filename ]
+then
+echo $filename is exist
+else
+echo $filename is not exist
+fi
+
+owner=`whoami`
+fileowner=`ls -al $filename | cut -d' ' -f3`
+
+if [ "$owner" = "$fileowner" ]
+then
+  echo the owner of $filename is equal
+else
+  echo the owner of $filename is not equal
+fi
